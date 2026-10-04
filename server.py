@@ -141,7 +141,7 @@ async def http_health_endpoint(request):
     return JSONResponse({
         "status": "ok",
         "service": "PolicyProof MCP",
-        "version": "1.0.0"
+        "version": "1.0.1"
     })
 
 
