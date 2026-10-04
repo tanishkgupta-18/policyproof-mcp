@@ -1,0 +1,70 @@
+{
+  "policies": [
+    {
+      "policy_id": "POL-AUTO-2024",
+      "policy_name": "[TEST DATA] Personal Auto Policy 2024",
+      "evidence": [
+        {
+          "source": "[TEST DATA] Auto Policy Section 4 - Comprehensive & Collision",
+          "page": 12,
+          "excerpt": "[TEST DATA] Glass Breakage: Comprehensive coverage includes windshield repair and replacement with a $0 deductible when utilizing preferred network repair facilities.",
+          "source_url": "https://example.com/test-data/policies/POL-AUTO-2024.pdf#page=12"
+        },
+        {
+          "source": "[TEST DATA] Auto Policy Section 6 - Transportation Expense Endorsement",
+          "page": 18,
+          "excerpt": "[TEST DATA] Rental Reimbursement: Provides reimbursement up to $45 per day, up to a maximum of 30 days ($1,350 aggregate), during covered collision or comprehensive repairs.",
+          "source_url": "https://example.com/test-data/policies/POL-AUTO-2024.pdf#page=18"
+        },
+        {
+          "source": "[TEST DATA] Auto Policy Section 9 - Roadside Assistance",
+          "page": 27,
+          "excerpt": "[TEST DATA] Roadside & Towing: Covers emergency towing expenses up to 25 miles per incident to the nearest qualified repair facility.",
+          "source_url": "https://example.com/test-data/policies/POL-AUTO-2024.pdf#page=27"
+        }
+      ]
+    },
+    {
+      "policy_id": "POL-HOME-889",
+      "policy_name": "[TEST DATA] Homeowners HO-3 Special Form Policy",
+      "evidence": [
+        {
+          "source": "[TEST DATA] Homeowners HO-3 Section I - Perils Insured Against",
+          "page": 8,
+          "excerpt": "[TEST DATA] Water Damage: Coverage is provided for sudden and accidental discharge or overflow of water or steam from within a plumbing, heating, air conditioning, or automatic fire protective sprinkler system.",
+          "source_url": "https://example.com/test-data/policies/POL-HOME-889.pdf#page=8"
+        },
+        {
+          "source": "[TEST DATA] Homeowners HO-3 Section I - Exclusions",
+          "page": 14,
+          "excerpt": "[TEST DATA] Water Exclusion: We do not insure for loss caused directly or indirectly by flood, surface water, waves, tidal water, overflow of any body of water, or spray from any of these.",
+          "source_url": "https://example.com/test-data/policies/POL-HOME-889.pdf#page=14"
+        },
+        {
+          "source": "[TEST DATA] Homeowners HO-3 Endorsement HO-04-77",
+          "page": 22,
+          "excerpt": "[TEST DATA] Roof Surfacing Payment Schedule: For roofs older than 15 years, payment for windstorm or hail loss to roof surfacing will be made on an Actual Cash Value (ACV) basis.",
+          "source_url": "https://example.com/test-data/policies/POL-HOME-889.pdf#page=22"
+        }
+      ]
+    },
+    {
+      "policy_id": "POL-HEALTH-101",
+      "policy_name": "[TEST DATA] Preferred Provider Organization (PPO) Health Plan",
+      "evidence": [
+        {
+          "source": "[TEST DATA] Health Benefit Summary - Schedule of Benefits",
+          "page": 5,
+          "excerpt": "[TEST DATA] Out-of-Pocket Maximum: In-network annual out-of-pocket maximum is $6,500 for individual coverage and $13,000 for family coverage per calendar year.",
+          "source_url": "https://example.com/test-data/policies/POL-HEALTH-101.pdf#page=5"
+        },
+        {
+          "source": "[TEST DATA] Health Benefit Summary - Outpatient Services",
+          "page": 11,
+          "excerpt": "[TEST DATA] Telehealth Consultations: In-network virtual urgent care and primary care telehealth consultations are subject to a $15 copay per visit, deductible waived.",
+          "source_url": "https://example.com/test-data/policies/POL-HEALTH-101.pdf#page=11"
+        }
+      ]
+    }
+  ]
+}
