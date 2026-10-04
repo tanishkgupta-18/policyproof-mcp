@@ -18,6 +18,11 @@ try:
 except ImportError:
     from mcp.server.fastmcp import FastMCP  # type: ignore
 
+try:
+    from mcp.server.sse import TransportSecuritySettings
+except ImportError:
+    TransportSecuritySettings = None
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -140,8 +145,58 @@ async def http_health_endpoint(request):
     })
 
 
-# Export ASGI Starlette application for SSE transport
-app = mcp.sse_app()
+# Configure Host header and DNS-rebinding security settings for local development and Render deployment
+ALLOWED_HOSTS = [
+    "localhost",
+    "localhost:*",
+    "127.0.0.1",
+    "127.0.0.1:*",
+    "[::1]",
+    "[::1]:*",
+    "0.0.0.0",
+    "0.0.0.0:*",
+    "policyproof-mcp.onrender.com",
+    "policyproof-mcp.onrender.com:*",
+]
+
+# Allow additional hosts from environment variable if configured
+env_allowed_hosts = os.environ.get("ALLOWED_HOSTS")
+if env_allowed_hosts:
+    for h in env_allowed_hosts.split(","):
+        h = h.strip()
+        if h and h not in ALLOWED_HOSTS:
+            ALLOWED_HOSTS.append(h)
+            if not h.endswith(":*"):
+                ALLOWED_HOSTS.append(f"{h}:*")
+
+ALLOWED_ORIGINS = [
+    "http://localhost",
+    "http://localhost:*",
+    "http://127.0.0.1",
+    "http://127.0.0.1:*",
+    "http://[::1]:*",
+    "https://policyproof-mcp.onrender.com",
+    "https://policyproof-mcp.onrender.com:*",
+    "http://policyproof-mcp.onrender.com",
+]
+
+env_allowed_origins = os.environ.get("ALLOWED_ORIGINS")
+if env_allowed_origins:
+    for orig in env_allowed_origins.split(","):
+        orig = orig.strip()
+        if orig and orig not in ALLOWED_ORIGINS:
+            ALLOWED_ORIGINS.append(orig)
+
+if TransportSecuritySettings is not None:
+    transport_security = TransportSecuritySettings(
+        enable_dns_rebinding_protection=True,
+        allowed_hosts=ALLOWED_HOSTS,
+        allowed_origins=ALLOWED_ORIGINS,
+    )
+    # Export ASGI Starlette application for SSE transport with configured security settings
+    app = mcp.sse_app(transport_security=transport_security)
+else:
+    app = mcp.sse_app()
 
 
 if __name__ == "__main__":
